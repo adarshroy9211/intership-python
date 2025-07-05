@@ -1,0 +1,16 @@
+# Internship Task: Collect and Validate User Input (Name & Email)
+
+def validate_input(name, email):
+    if not name or not email:
+        return "❌ Error: Both fields are required."
+    if "@" not in email:
+        return "❌ Error: Email must contain '@'."
+    return f"✅ Received data: Name - {name}, Email - {email}"
+
+# Take input from user
+name = input("Enter your name: ").strip()
+email = input("Enter your email: ").strip()
+
+# Validate and print result
+result = validate_input(name, email)
+print(result)

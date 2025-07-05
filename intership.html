@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internship Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-box {
+      background: #f3d568;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-box input[type="text"],
+    .form-box input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-box input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-box input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-box">
+  <h2>Apply Now</h2>
+  <form onsubmit="return validateForm()">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="you@example.com">
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<script>
+  function validateForm() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (name === "" || email === "") {
+      alert("❌ Error: Both fields must be filled!");
+      return false;
+    }
+
+    if (!email.includes("@")) {
+      alert("❌ Error: Email must contain '@'!");
+      return false;
+    }
+
+    alert("✅ Success: Form submitted successfully!");
+    return true;
+  }
+</script>
+
+</body>
+</html>
